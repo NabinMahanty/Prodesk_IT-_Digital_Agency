@@ -301,9 +301,9 @@ body.active {
   position: fixed;
   top: 0;
   left: -450px;
-  width: calc(100% - 70px);
-  max-width: 350px;
-  height: 100vh;
+  width: calc(80% - 50px);
+  max-width: 250px;
+  height: 90vh;
   background-color: var(--cultured);
   z-index: 1;
   visibility: hidden;
