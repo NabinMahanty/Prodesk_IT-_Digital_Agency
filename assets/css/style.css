@@ -19,17 +19,6 @@
   --text-primary: var(--davys-gray);
   --text-heading: var(--gunmetal);
   --border-color: var(--light-gray);
-}
-
-[data-theme="dark"] {
-  --bg-primary: hsl(217, 21%, 10%);
-  --bg-secondary: hsl(217, 21%, 14%);
-  --bg-card: hsl(217, 21%, 16%);
-  --bg-header: hsl(217, 21%, 12%);
-  --bg-navbar: hsl(217, 21%, 18%);
-  --text-primary: hsl(0, 0%, 85%);
-  --text-heading: hsl(0, 0%, 95%);
-  --border-color: hsl(217, 21%, 25%);
 
   /**
    * typography
@@ -49,7 +38,7 @@
    * spacing
    */
 
-  --section-padding: 80px;
+  --section-padding: 60px;
 
   /**
    * shadow
@@ -72,6 +61,17 @@
   --transition-2: 0.5s ease;
   --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
   --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+}
+
+[data-theme="dark"] {
+  --bg-primary: hsl(217, 21%, 10%);
+  --bg-secondary: hsl(217, 21%, 14%);
+  --bg-card: hsl(217, 21%, 16%);
+  --bg-header: hsl(217, 21%, 12%);
+  --bg-navbar: hsl(217, 21%, 18%);
+  --text-primary: hsl(0, 0%, 85%);
+  --text-heading: hsl(0, 0%, 95%);
+  --border-color: hsl(217, 21%, 25%);
 }
 
 /*-----------------------------------*\
@@ -161,7 +161,8 @@ body.active {
 \*-----------------------------------*/
 
 .container {
-  padding-inline: 15px;
+  padding-inline: 20px;
+  max-width: 100%;
 }
 
 .section {
@@ -436,12 +437,13 @@ body.active {
 \*-----------------------------------*/
 
 .hero {
-  padding-block-start: calc(var(--section-padding) + 90px);
+  padding-block-start: calc(var(--section-padding) + 70px);
+  padding-block-end: var(--section-padding);
 }
 
 .hero .container {
   display: grid;
-  gap: 40px;
+  gap: 50px;
 }
 
 .hero-content {
@@ -450,6 +452,10 @@ body.active {
 
 .hero .section-text {
   margin-block: 20px 30px;
+}
+
+.hero .btn {
+  margin-block-end: 20px;
 }
 
 .hero-banner {
@@ -461,6 +467,8 @@ body.active {
   width: 100%;
   margin-inline: auto;
   border-radius: var(--radius-4);
+  max-height: 400px;
+  object-fit: cover;
 }
 
 /*-----------------------------------*\
@@ -469,10 +477,11 @@ body.active {
 
 .service {
   background-color: var(--bg-secondary);
+  padding-block: var(--section-padding);
 }
 
 .service .section-text {
-  margin-block-end: 20px;
+  margin-block-end: 30px;
 }
 
 .service-card {
@@ -486,11 +495,24 @@ body.active {
 
 .service-card .card-icon {
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background-color: var(--white);
+  border-radius: var(--radius-4);
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .service-card .card-icon {
+  background-color: transparent;
 }
 
 .service-card .card-icon img {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
 }
 
 .service-card .card-title {
