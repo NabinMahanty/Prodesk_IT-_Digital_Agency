@@ -249,7 +249,7 @@ body.active {
   justify-content: space-between;
   align-items: flex-end;
   gap: 30px;
-  margin-block-end: 60px;
+  margin-block-end: 40px;
 }
 
 .grid-list {
@@ -478,6 +478,8 @@ body.active {
 .service {
   background-color: var(--bg-secondary);
   padding-block: var(--section-padding);
+  position: relative;
+  z-index: 1;
 }
 
 .service .section-text {
