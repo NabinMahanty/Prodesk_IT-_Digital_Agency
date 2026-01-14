@@ -54,3 +54,40 @@ const activeElemOnScroll = function () {
 };
 
 addEventOnElem(window, "scroll", activeElemOnScroll);
+
+/**
+ * dark mode toggle
+ */
+
+const themeToggleBtns = document.querySelectorAll(
+  "[data-theme-toggle], [data-theme-toggle-mobile]"
+);
+const moonIcons = document.querySelectorAll(".moon");
+const sunIcons = document.querySelectorAll(".sun");
+
+const updateThemeIcons = function (theme) {
+  moonIcons.forEach((icon) => {
+    icon.style.display = theme === "dark" ? "none" : "block";
+  });
+  sunIcons.forEach((icon) => {
+    icon.style.display = theme === "dark" ? "block" : "none";
+  });
+};
+
+const toggleTheme = function () {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+  updateThemeIcons(newTheme);
+};
+
+themeToggleBtns.forEach((btn) => {
+  addEventOnElem(btn, "click", toggleTheme);
+});
+
+// Load saved theme on page load
+const savedTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-theme", savedTheme);
+updateThemeIcons(savedTheme);
